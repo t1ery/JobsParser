@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FlaskUser</title>
+    <style>
+      section{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Search Results</h1>
+    <h3>Found {{resultsNumber}} results for '{{searchBy}}'</h3>
+    <a href="/export?keyword={{searchBy}}">Download as CSV</a>
+    <section>
+      <h4>Job Title</h4>
+      <h4>Company</h4>
+      <h4>Location</h4>
+      <h4>Link</h4>
+      {% for job in jobs %}
+        <span>{{job.title}}</span>
+        <span>{{job.company}}</span>
+        <span>{{job.location}}</span>
+        <a href="{{job.link}}" target="_blank">Go to</a>
+      {% endfor %}
+    </section>
+  </body>
+</html>
